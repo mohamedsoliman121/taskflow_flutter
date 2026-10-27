@@ -19,27 +19,13 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:  MyHomePage(),
-      initialRoute: AppRoutes.splashscreen,
+
+      initialRoute: AppRoutes.welcamescreen,
       getPages: Pages.pages,
     );
   }
 }
 
- class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-
-   return Scaffold(
-
-   ); 
-  }
-
-
-
-
- }
 
 
