@@ -35,17 +35,17 @@ class Pagetow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/images/welcame.jpeg', width: 500, height: 250),
-            SizedBox(height: 10),
-            Text('WorkFlow مرحبا بك في' , style: TextStyle(fontWeight: FontWeight.w600),),
-            SizedBox(height: 10),
+            Image.asset('assets/images/welcame.jpeg', width: 500, height: 325),
+            SizedBox(height: 20),
+            Text('WorkFlow مرحبا بك في' , style: TextStyle(fontWeight: FontWeight.w800 , fontSize: 28),),
+            SizedBox(height: 20),
             Text('نساعدك على تنظيم مهامك'),
-             SizedBox(height: 10),
+             SizedBox(height: 20),
       Text('وإيجاز اهدافك بسهولة'),
       
-              SizedBox(height: 10),
+              SizedBox(height: 20),
 Indicators(color : Colors.blue) , 
-  SizedBox(height: 10),
+  SizedBox(height: 20),
           ElevatedButton(onPressed: () {},
            
           style: ElevatedButton.styleFrom(
