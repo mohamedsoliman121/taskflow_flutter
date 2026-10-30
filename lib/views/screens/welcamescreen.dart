@@ -7,7 +7,7 @@ import 'package:taskflow_flutter/views/widgets/Indicators.dart';
 class Welcamescreen extends StatelessWidget {
   Welcamescreen({super.key});
 
-  final controller = Get.find<WelcameController>();
+  final  controller = Get.find<WelcameController>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class Welcamescreen extends StatelessWidget {
 }
 
 class Pagetow extends StatelessWidget {
-  const Pagetow({super.key});
-
+   Pagetow({super.key});
+final WelcameController controller = Get.find<WelcameController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +46,12 @@ class Pagetow extends StatelessWidget {
               SizedBox(height: 20),
 Indicators(color : Colors.blue) , 
   SizedBox(height: 20),
-          ElevatedButton(onPressed: () {},
+          ElevatedButton(onPressed: () {
+
+        controller.gotoSignup();
+
+
+          },
            
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue , 
@@ -64,7 +69,9 @@ Indicators(color : Colors.blue) ,
                   children: [
                    
                  
-                    TextButton(onPressed: () {}, child: Text('تسجيل الدخول' , style: TextStyle(color: Colors.blueAccent),)),
+                    TextButton(onPressed: () {
+                      controller.gotologin();
+                    }, child: Text('تسجيل الدخول' , style: TextStyle(color: Colors.blueAccent),)),
                      Text("لديك حساب بالفعل ؟"),
                   ],
                 ),

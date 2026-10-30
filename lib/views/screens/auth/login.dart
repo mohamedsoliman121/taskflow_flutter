@@ -48,7 +48,7 @@ final controller = Get.find<LoginController>();
                ElevatedButton(onPressed: (){},
                style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -66,24 +66,26 @@ final controller = Get.find<LoginController>();
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    width: 300,
-                    child: Divider(
-                      color: Colors.grey[900],
-                      thickness: 1,
-                           
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Divider(
+                        color: Colors.grey[900],
+                        thickness: 1,
+                             
+                      ),
                     ),
                   ),
                   Text ("أو ") , 
-                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      width: 300,
-                       child: Divider(
-                                         color: Colors.grey[900],
-                                         thickness: 1,
-                                 
-                                       ),
+                     Expanded(
+                       child: Padding(
+                         padding: const EdgeInsets.all(15),
+                         child: Divider(
+                                           color: Colors.grey[900],
+                                           thickness: 1,
+                                   
+                                         ),
+                       ),
                      ),
                   ],
                 ) , 
@@ -104,7 +106,7 @@ final controller = Get.find<LoginController>();
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                   side: BorderSide(color: Colors.grey),
@@ -140,7 +142,13 @@ final controller = Get.find<LoginController>();
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
                TextButton(  
-                  onPressed: (){},
+                  onPressed: (){
+
+        controller.gotosignup();
+
+
+
+                  },
                   child: Text(
                   "سجل الان", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200 , color: Colors.blue),),
                 ) ,
