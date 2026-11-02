@@ -17,7 +17,15 @@ class SignupController extends GetxController {
 final formKey = GlobalKey<FormState>();
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+bool visibility = false ;
 
+void changevisibility () {
+
+
+visibility = ! visibility ;
+update() ;
+
+}
   // دالة إنشاء حساب جديد
   void signUp(  ) async {
 

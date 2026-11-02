@@ -54,15 +54,26 @@ final controller = Get.find<LoginController>();
                   controller: controller.emailcontroller , 
                   hintText: "البريد الالكتروني او رقم الهاتف", prefixIcon: Icon(Icons.email_outlined), suffixIcon: null,), 
                 SizedBox(height: 10,),
-                 Textfield(
-                        validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'الرجاء إدخال كلمة المرور';
-                  }
-                  return null;
-                },
-                  controller: controller.passwordcontroller,
-                  hintText: "كلمة المرور", prefixIcon: Icon(Icons.lock_outlined), suffixIcon: Icon(Icons.visibility_off_outlined),), 
+                 GetBuilder<LoginController>(
+                   builder: (controller) => Textfield(
+                          validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'الرجاء إدخال كلمة المرور';
+                    }
+                    return null;
+                                   },
+                    controller: controller.passwordcontroller,
+                    hintText: "كلمة المرور",
+                     prefixIcon: Icon(Icons.lock_outlined), 
+                     obscureText : !controller.isvisvilty , 
+                     suffixIcon: 
+                        IconButton(
+                        onPressed: (){
+                          controller.changeisvis() ;
+                        } , 
+                         icon: Icon( controller.isvisvilty ? Icons.visibility_off : Icons.visibility),),
+                     ),
+                 ), 
                  SizedBox(height: 20,),
                  ElevatedButton(onPressed: (){
                     // Get.toNamed(Routes.dashbordscreen);

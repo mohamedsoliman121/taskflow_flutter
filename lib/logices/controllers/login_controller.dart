@@ -14,6 +14,14 @@ final TextEditingController passwordcontroller = TextEditingController();
 
 final formKey = GlobalKey<FormState>();
 final FirebaseAuth _auth = FirebaseAuth.instance;
+bool isvisvilty = false ;
+
+void changeisvis () {
+
+isvisvilty = !isvisvilty ;
+update() ;
+
+}
 
 void login () async {
  if (!formKey.currentState!.validate()) {
@@ -51,7 +59,7 @@ void gotosignup () {
 void onClose () {
 emailcontroller.dispose() ;
 passwordcontroller.dispose();
-super.dispose();
+super.onClose();
 
 }
 
