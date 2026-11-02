@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taskflow_flutter/logices/controllers/login_controller.dart';
-import 'package:taskflow_flutter/routes/app_routes.dart';
+// import 'package:taskflow_flutter/routes/app_routes.dart';
 import 'package:taskflow_flutter/views/widgets/textfield.dart';
 
 
@@ -131,6 +131,7 @@ final controller = Get.find<LoginController>();
               child: ElevatedButton.icon(
                 onPressed: () {
                   // Handle Google login
+                   controller.signInWithGoogle() ;
                 },
                 icon: Image.asset(
                   'assets/images/google_logo.png',
@@ -154,6 +155,7 @@ final controller = Get.find<LoginController>();
               child: ElevatedButton.icon(
                 onPressed: () {
                   // Handle Facebook login
+             //     controller.signInWithFacebook() ;
                 },
                 icon: Image.asset(
                   'assets/images/facebook_logo.png',

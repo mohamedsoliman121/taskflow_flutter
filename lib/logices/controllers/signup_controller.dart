@@ -46,7 +46,7 @@ update() ;
       await userCredential.user?.updateDisplayName(nameController.text.trim());
       Get.back(); // إغلاق التحميل
       Get.snackbar('نجاح', 'تم إنشاء الحساب بنجاح', backgroundColor: Colors.green, colorText: Colors.white);
-
+    Get.offAllNamed(Routes.dashbordscreen);
       // التنقل للشاشة الرئيسية بعد النجاح
       // Get.offAll(() => DashbordScreen());
     } catch (e) {

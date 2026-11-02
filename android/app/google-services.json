@@ -12,7 +12,20 @@
           "package_name": "com.example.taskflow_flutter"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "362916688892-9dipfe4ng2akv82buedlmpm8gsm69uai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.taskflow_flutter",
+            "certificate_hash": "d1252eae5bf7553d1998715e58c034f13759ef86"
+          }
+        },
+        {
+          "client_id": "362916688892-js027kg44k9i80hch1iods74lbmugmf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAUjx-oGsQ4hzeH1wuYePfTQo83bPpE6Jw"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362916688892-js027kg44k9i80hch1iods74lbmugmf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "362916688892-p39994gp9h6a1m8vroq352cduq16sulv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.taskflowFlutter"
+              }
+            }
+          ]
         }
       }
     },
@@ -31,7 +56,20 @@
           "package_name": "com.taskflow.moha"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "362916688892-see8gnhj4ikom8l8kka36rj07vhg5f9c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taskflow.moha",
+            "certificate_hash": "d1252eae5bf7553d1998715e58c034f13759ef86"
+          }
+        },
+        {
+          "client_id": "362916688892-js027kg44k9i80hch1iods74lbmugmf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAUjx-oGsQ4hzeH1wuYePfTQo83bPpE6Jw"
@@ -39,7 +77,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362916688892-js027kg44k9i80hch1iods74lbmugmf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "362916688892-p39994gp9h6a1m8vroq352cduq16sulv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.taskflowFlutter"
+              }
+            }
+          ]
         }
       }
     }

@@ -9,7 +9,7 @@ var selectedIndex = 0.obs;
 final List<Widget> screens = [
   Center(child: Text('Home Screen')),
   Center(child: Text('Search Screen')),
-  Login() , 
+  Center(child: Text('Settings Screen')),
   Center(child: Text('Settings Screen')),
   Center(child: Text('Profile Screen')),
 

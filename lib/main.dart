@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,12 +12,16 @@ void main() async {
 await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+final User? user = FirebaseAuth.instance.currentUser;
 
-  runApp(const MyApp());
+final String route = (user != null) ? AppRoutes.dashbordscreen : AppRoutes.welcamescreen ;  
+
+runApp(MyApp(route : route));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String route;
+   const MyApp({super.key , required this.route});
 
   // This widget is the root of your application.
   @override
@@ -28,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
 
-      initialRoute: AppRoutes.welcamescreen,
+      initialRoute: route,
       getPages: Pages.pages,
     );
   }
