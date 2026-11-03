@@ -58,7 +58,7 @@ class Signup extends StatelessWidget {
                  suffixIcon: IconButton(onPressed: () {
                  controller.changevisibility();
 
-                 }, icon: Icon(controller.visibility ? Icons.visibility : Icons.visibility_off)) ,
+                 }, icon: Icon(controller.visibility ? Icons.visibility_off : Icons.visibility)) ,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'الرجاء إدخال كلمة المرور';

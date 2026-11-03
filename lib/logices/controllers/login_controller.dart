@@ -97,6 +97,11 @@ void signInWithGoogle() async {
     }
   }
 
+  void gotoforget() {
+    
+    Get.toNamed(Routes.forgetpasswordscreen) ;  
+  }
+
 // void signInWithFacebook() async {
 //   try {
 //     Get.dialog(const Center(child: CircularProgressIndicator()), barrierDismissible: false);

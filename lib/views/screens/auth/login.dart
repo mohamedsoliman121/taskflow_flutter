@@ -94,7 +94,9 @@ final controller = Get.find<LoginController>();
                   ),
                   SizedBox(height: 10,),
                   TextButton(  
-                    onPressed: (){},
+                    onPressed: (){
+                      controller.gotoforget() ;
+                    },
                     child: Text(
                     "هل نسيت كلمة المرور؟", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200 , color: Colors.blue),),
                   ) , 
