@@ -7,6 +7,7 @@ class WelcameBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(WelcameController()) ;
+
   }
 
 

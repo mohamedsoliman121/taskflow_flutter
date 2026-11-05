@@ -11,7 +11,7 @@ class DashbordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => controller.screens[controller.selectedIndex.value]),
+      body: Obx(() => controller.screens[controller.selectedIndex.value]()),
       bottomNavigationBar: Obx (() => Container(
       //  height: 70,
         margin: const EdgeInsets.only(left: 10, right: 10 , bottom: 50 , top: 10),

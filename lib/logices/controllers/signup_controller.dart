@@ -3,8 +3,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:taskflow_flutter/models/user_model.dart';
 import 'package:taskflow_flutter/routes/app_routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:taskflow_flutter/services/user_service.dart';
 
 class SignupController extends GetxController {
   // Add your controller logic here
@@ -18,6 +20,8 @@ final formKey = GlobalKey<FormState>();
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 bool visibility = false ;
+final UserService _userService = UserService();
+
 
 void changevisibility () {
 
@@ -44,6 +48,20 @@ update() ;
         password: passwordController.text,
       );
       await userCredential.user?.updateDisplayName(nameController.text.trim());
+
+    String uid = userCredential.user!.uid;
+
+      // 2. إنشاء كائن الـ Model بالبيانات المطلوبة
+      UserModel newUser = UserModel(
+        uid: uid,
+        name: nameController.text.trim(),
+        email: emailController.text.trim(),
+      );
+
+      // 3. تمرير الـ Model للـ Service لحفظه في قاعدة البيانات
+      await _userService.saveUserData(newUser);
+
+
       Get.back(); // إغلاق التحميل
       Get.snackbar('نجاح', 'تم إنشاء الحساب بنجاح', backgroundColor: Colors.green, colorText: Colors.white);
     Get.offAllNamed(Routes.dashbordscreen);
