@@ -64,12 +64,15 @@ class Settingsscreen extends StatelessWidget {
                   texttow: "",
                   icontwo: Icon(Icons.lock_clock),
                 ),
-
+SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 150 , vertical: 20) , 
-                  
+                    padding: EdgeInsets.symmetric(horizontal: 160 , vertical: 20) , 
+                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Set the border radius to 10 
+
+                   ),
                   ),
                   child: Text(
                     "الخروج",

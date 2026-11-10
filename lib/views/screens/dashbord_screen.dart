@@ -40,7 +40,7 @@ borderRadius: BorderRadius.circular(30),
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                label: 'Home',
+                label: 'الرئيسية',
               ),
                 BottomNavigationBarItem(
                 icon: Icon(Icons.home),
@@ -63,8 +63,8 @@ borderRadius: BorderRadius.circular(30),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
+                icon: Icon(Icons.settings),
+                label: 'الاعدادت',
               ),
             ],
           ),
