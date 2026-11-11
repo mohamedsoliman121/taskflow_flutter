@@ -43,8 +43,8 @@ borderRadius: BorderRadius.circular(30),
                 label: 'الرئيسية',
               ),
                 BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
+                icon: Icon(Icons.task,) ,
+                label: 'المهام',
               ),
                  BottomNavigationBarItem(
               
@@ -55,12 +55,12 @@ borderRadius: BorderRadius.circular(30),
       color: controller.selectedIndex.value == 2 ? Colors.blue.withValues(alpha: 0.2) : Colors.transparent,
       shape: BoxShape.circle, // شكل دائري
     ),
-                  child: Icon(Icons.add , color: controller.selectedIndex.value == 2 ? Colors.blue : Colors.grey,),),
-                label: 'Home',
+                  child: Icon(Icons.calendar_month , color: controller.selectedIndex.value == 2 ? Colors.blue : Colors.grey,),),
+                label: 'التقويم',
               ),
                  BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
+                icon: Icon(Icons.stacked_bar_chart),
+                label: 'الاحصائيات',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
