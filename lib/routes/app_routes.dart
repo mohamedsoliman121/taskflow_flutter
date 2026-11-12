@@ -15,6 +15,7 @@ static const taskscreen = Routes.taskscreen ;
 static const homeScreen = Routes.homeScreen ;
 static const calenderscreen = Routes.calenderscreen ;
 static const statisticsscreen = Routes.statisticsscreen ;
+static const addtaskscreen = Routes.addtaskscreen ; 
 }
 
 class Routes {
@@ -30,5 +31,6 @@ static const taskscreen = '/taskscreen' ;
 static const homeScreen = '/homeScreen' ;
 static const calenderscreen = '/calenderscreen' ;
 static const statisticsscreen = '/statisticsscreen' ;
+static const addtaskscreen = '/addtaskscreen' ;
  
 }

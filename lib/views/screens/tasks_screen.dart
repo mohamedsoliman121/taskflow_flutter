@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taskflow_flutter/logices/controllers/tasks_controller.dart';
+import 'package:taskflow_flutter/routes/app_routes.dart';
 import 'package:taskflow_flutter/views/widgets/textfield.dart';
 
 
@@ -32,7 +33,7 @@ class TasksScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(10), // Set the desired border radius
         ),
         onPressed: () {
-          // Add your action here
+     Get.toNamed(Routes.addtaskscreen) ;
         },
         child: Icon(Icons.add),
       ),

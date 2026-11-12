@@ -1,4 +1,5 @@
 import 'package:taskflow_flutter/logices/bindings/Statistics_binding.dart';
+import 'package:taskflow_flutter/logices/bindings/addtask_binding.dart';
 import 'package:taskflow_flutter/logices/bindings/calender_binding.dart';
 import 'package:taskflow_flutter/logices/bindings/dashbord_binding.dart';
 import 'package:taskflow_flutter/logices/bindings/forgetpassword_binding.dart';
@@ -11,6 +12,7 @@ import 'package:taskflow_flutter/logices/bindings/welcame_binding.dart';
 import 'package:taskflow_flutter/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:taskflow_flutter/views/screens/Statistics_Screen.dart';
+import 'package:taskflow_flutter/views/screens/addtask_screen.dart';
 import 'package:taskflow_flutter/views/screens/auth/forgetpassword.dart';
 import 'package:taskflow_flutter/views/screens/auth/login.dart';
 import 'package:taskflow_flutter/views/screens/auth/signup.dart';
@@ -47,10 +49,7 @@ class Pages {
     GetPage(
       name: AppRoutes.dashbordscreen,
       page: () => DashbordScreen(),
-      binding:  
-      DashbordBinding() 
-
-      ,
+      binding: DashbordBinding(),
     ),
     GetPage(
       name: AppRoutes.forgetpasswordscreen,
@@ -82,7 +81,10 @@ class Pages {
       page: () => Statisticsscreen(),
       binding: Statisticsbinding(),
     ),
-
-
+    GetPage(
+      name: AppRoutes.addtaskscreen,
+      page: () => AddtaskScreen(),
+      binding: AddtaskBinding(),
+    ),
   ];
 }
