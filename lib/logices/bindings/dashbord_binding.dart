@@ -6,6 +6,7 @@ import 'package:taskflow_flutter/logices/controllers/dashbord_controller.dart' s
 import 'package:taskflow_flutter/logices/controllers/home_controller.dart';
 import 'package:taskflow_flutter/logices/controllers/settings_controller.dart';
 import 'package:taskflow_flutter/logices/controllers/tasks_controller.dart';
+import 'package:taskflow_flutter/utils/locale_controller.dart';
 
 
 class DashbordBinding extends Bindings {
@@ -17,6 +18,8 @@ Get.lazyPut<HomeController>(()=> HomeController() , fenix: true);
 Get.lazyPut<TasksController>(() => TasksController(), fenix: true);
 Get.lazyPut<CalendarController>(() => CalendarController(), fenix: true);
 Get.lazyPut<StatisticsController>(() => StatisticsController(), fenix: true);
+   Get.lazyPut<MyLocaleController>(() => MyLocaleController(), fenix: true);
+
   }
 }
 

@@ -1,10 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:taskflow_flutter/services/Task_Service.dart';
 
 class HomeController extends GetxController {
   final TaskService _taskService = TaskService();
 
-  // لستة تخزين المهام القادمة من الفايربيز
+
+final String? user = FirebaseAuth.instance.currentUser!.displayName;
+ // لستة تخزين المهام القادمة من الفايربيز
   var tasksList = [].obs;
 
   // عدادات الإحصائيات
@@ -35,5 +38,9 @@ class HomeController extends GetxController {
       pendingTasks.value = totalTasks.value - completedTasks.value;
       uncompletedTasks.value = 0; // يمكنك ربطها بحالة معينة إذا أردت
     });
+  }
+  // تحديث حالة المهمة عند الضغط على الـ Checkbox من الرئيسية
+  Future<void> updateTaskStatus(String taskId, bool isCompleted) async {
+    await _taskService.updateTaskStatus(taskId, isCompleted);
   }
 }

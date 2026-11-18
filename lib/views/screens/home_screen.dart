@@ -10,11 +10,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // MyLocaleController langcontroller = Get.find<MyLocaleController>();
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: const Icon(Icons.menu_sharp),
-        title: const Text('TaskFlow'),
+        title:  Text('TaskFlow'.tr),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
@@ -24,7 +26,7 @@ class HomeScreen extends StatelessWidget {
           const CircleAvatar(
             radius: 20,
             backgroundImage: NetworkImage(
-              'https://images.unsplash.com/photo-1682685790910-1f3e5c7d8b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+              'https://images.unsplash.com/photo-1682685790910-1f3e5c7d8b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
             ),
           ),
           const SizedBox(width: 10),
@@ -36,9 +38,9 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Text(
-                'مرحبا محمد',
-                style: TextStyle(
+              Text(
+                'مرحبا ${controller.user ?? "Guest"}',
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -110,7 +112,9 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // يمكنك الانتقال لشاشة المهام الكاملة هنا إذا أردت
+                    },
                     child: const Text(
                       'عرض الكل',
                       style: TextStyle(color: Colors.blueAccent),
@@ -118,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const Text(
                     'المهام القادمة',
-                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ],
               ),
@@ -130,7 +134,10 @@ class HomeScreen extends StatelessWidget {
                   return const Center(
                     child: Padding(
                       padding: EdgeInsets.only(top: 40),
-                      child: Text('لا توجد مهام حالياً، أضف مهمتك الأولى!', style: TextStyle(color: Colors.grey)),
+                      child: Text(
+                        'لا توجد مهام حالياً، أضف مهمتك الأولى!',
+                        style: TextStyle(color: Colors.grey, fontSize: 15),
+                      ),
                     ),
                   );
                 }
@@ -141,35 +148,71 @@ class HomeScreen extends StatelessWidget {
                   itemCount: controller.tasksList.length,
                   itemBuilder: (context, index) {
                     var task = controller.tasksList[index];
+                    bool isCompleted = task['isCompleted'] ?? false;
+                    String priority = task['priority'] ?? 'متوسطة';
+
+                    // تحديد لون نقطة الأولوية
+                    Color priorityColor = Colors.green;
+                    if (priority == 'عالية') priorityColor = Colors.red;
+                    if (priority == 'متوسطة') priorityColor = Colors.amber;
+
                     return Card(
                       color: Colors.white,
                       elevation: 2,
                       margin: const EdgeInsets.symmetric(vertical: 6),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(12),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            // 1. زر الـ Checkbox لتغيير الحالة
                             Checkbox(
-                              value: task['isCompleted'] ?? false,
+                              value: isCompleted,
+                              activeColor: Colors.blue,
                               onChanged: (val) {
-                                // يمكنك هنا إضافة تحديث حالة المهمة في الفايربيز
+                                // استدعاء دالة التحديث في الـ Service عبر الـ Controller
+                                controller.updateTaskStatus(task['id'], val ?? false);
                               },
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  task['title'] ?? '',
-                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  "${task['date']} - ${task['time']}",
-                                  style: const TextStyle(color: Colors.grey, fontSize: 12),
-                                ),
-                              ],
+                            
+                            // 2. تفاصيل المهمة (العنوان والتاريخ والوقت)
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    task['title'] ?? '',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      decoration: isCompleted ? TextDecoration.lineThrough : null,
+                                      color: isCompleted ? Colors.grey : Colors.black,
+                                    ),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    "${task['date']}  |  ${task['time']}",
+                                    style: const TextStyle(color: Colors.grey, fontSize: 12),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            const SizedBox(width: 12),
+
+                            // 3. نقطة تدل على الأولوية
+                            Container(
+                              width: 12,
+                              height: 12,
+                              decoration: BoxDecoration(
+                                color: priorityColor,
+                                shape: BoxShape.circle,
+                              ),
                             ),
                           ],
                         ),
